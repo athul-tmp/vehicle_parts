@@ -81,10 +81,13 @@ function loadPartNo() {
         .then(response => response.json())
         .then(data => {
             let partNoContainer = document.getElementById("part-number-container");
-            partNoContainer.innerHTML = "Part Numbers: ";
+            let html = "Suitable Part Number(s):<ol>"
+            partNoContainer.innerHTML = "Suitable Part Number(s):<ol>";
             data.forEach(partNo => {
-                partNoContainer.innerHTML += `${partNo} `;
+                html += `<li>${partNo}</li>`;
             });
+            html += "</ol>";
+            partNoContainer.innerHTML = html;
         });
 }
 
