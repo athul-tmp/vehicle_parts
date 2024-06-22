@@ -4,32 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Vehicle Parts Finder</title>
 </head>
 
 <body>
     <h1>Vehicle Parts Finder</h1>
-    <div id="make-container"></div>
-    Make:
-    <select id="make" onchange="">
-        <option value="">Select make</option>
-    </select>
+    <div id="make-container">
+        Make:
+        <select id="make" onchange="loadModels()">
+            <option value="">Select Make</option>
+        </select>
+    </div>
 
     <div id="model-container"></div>
-    Model:
-    <select id="model" onchange="">
-        <option value="">Select Model</option>
-    </select>
-
     <div id="type-container"></div>
-    Type:
-    <select id="type" onchange="">
-        <option value="">Select Type</option>
-    </select>
-
     <div id="part-number"></div>
-
 </body>
 
 </html>
