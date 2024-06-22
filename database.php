@@ -14,7 +14,7 @@ $action = $_GET["action"];
 
 switch ($action){
     case 'get_makes':
-        $query = "SELECT DISTINCT Make FROM vehicle_parts";
+        $query = "SELECT DISTINCT Make FROM vehicle_parts;";
         $result = $conn->query($query);
 
         $makes = array();
@@ -69,9 +69,8 @@ switch ($action){
 
     default:
         echo json_encode(array("Error" => "Invalid action"));
+        break;
 }
-
-
 
 $conn->close();
 ?>
