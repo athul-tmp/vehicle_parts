@@ -14,7 +14,7 @@ function loadModels() {
     if (make === "") {
         document.getElementById("model-container").innerHTML = "";
         document.getElementById("type-container").innerHTML = "";
-        document.getElementById("part-number").innerHTML = "";
+        document.getElementById("part-number-container").innerHTML = "";
         return;
     }
     fetch(`database.php?action=get_models&make=${encodeURIComponent(make)}`)
@@ -30,7 +30,7 @@ function loadModels() {
                 modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
             });
             document.getElementById("type-container").innerHTML = "";
-            document.getElementById("part-number").innerHTML = "";
+            document.getElementById("part-number-container").innerHTML = "";
         });
 }
 
@@ -39,7 +39,7 @@ function loadTypes() {
     let model = document.getElementById("model").value;
     if (model === "") {
         document.getElementById("type-container").innerHTML = "";
-        document.getElementById("part-number").innerHTML = "";
+        document.getElementById("part-number-container").innerHTML = "";
         return;
     }
     fetch(`database.php?action=get_types&make=${encodeURIComponent(make)}&model=${encodeURIComponent(model)}`)
@@ -54,7 +54,26 @@ function loadTypes() {
             data.forEach(type => {
                 typeSelect.innerHTML += `<option value="${type}">${type}</option>`;
             });
-            document.getElementById("part-number").innerHTML = "";
+            document.getElementById("part-number-container").innerHTML = "";
+        });
+}
+
+function loadPartNo() {
+    let make = document.getElementById("make").value;
+    let model = document.getElementById("model").value;
+    let type = document.getElementById("type").value;
+    if (type === "") {
+        document.getElementById("part-number-container").innerHTML = "";
+        return;
+    }
+    fetch(`database.php?action=get_partNo&make=${encodeURIComponent(make)}&model=${encodeURIComponent(model)}&type=${encodeURIComponent(type)}`)
+        .then(response => response.json())
+        .then(data => {
+            let partNoContainer = document.getElementById("part-number-container");
+            partNoContainer.innerHTML = "Part Numbers: ";
+            data.forEach(partNo => {
+                partNoContainer.innerHTML += `${partNo} `;
+            });
         });
 }
 

@@ -61,7 +61,7 @@ switch ($action){
 
         $partNo = array();
         while($row = $result->fetch_assoc()) {
-            $partNo[] = $partNo['PartNo'];
+            $partNo[] = $row['PartNo'];
         }
 
         echo json_encode($partNo);
