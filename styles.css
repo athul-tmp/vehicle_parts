@@ -1,0 +1,72 @@
+/* Reset some default styles */
+body,
+h1,
+select {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aaaaaa28;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #298af8;
+    color: white;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px #00000022;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 2px 4px #0000000d;
+}
+
+#make-container,
+#model-container,
+#type-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#part-number-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #000000;
+    text-align: center;
+}

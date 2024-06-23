@@ -25,7 +25,7 @@ function loadModels() {
         .then(response => response.json())
         .then(data => {
             let modelContainer = document.getElementById("model-container");
-            modelContainer.innerHTML = `Model:
+            modelContainer.innerHTML = `<label for="model">Model:</label>
                                     <select id="model" onchange="loadTypes()">
                                         <option value="">Select Model</option>
                                     </select>`;
@@ -54,7 +54,7 @@ function loadTypes() {
         .then(response => response.json())
         .then(data => {
             let typeContainer = document.getElementById("type-container");
-            typeContainer.innerHTML = `Type:
+            typeContainer.innerHTML = `<label for="type">Type:</label>
                                     <select id="type" onchange="loadPartNo()">
                                         <option value="">Select Type</option>
                                     </select>`;
@@ -81,8 +81,7 @@ function loadPartNo() {
         .then(response => response.json())
         .then(data => {
             let partNoContainer = document.getElementById("part-number-container");
-            let html = "Suitable Part Number(s):<ol>"
-            partNoContainer.innerHTML = "Suitable Part Number(s):<ol>";
+            let html = "<b>Suitable Part Number(s):</b><ol>"
             data.forEach(partNo => {
                 html += `<li>${partNo}</li>`;
             });
